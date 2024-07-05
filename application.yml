@@ -1,8 +1,16 @@
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://localhost:8070/eureka
+server:
+  port: 8071
+
+spring:
+  application:
+    name: CONFIG_SERVER
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: "https://github.com/JiteshSoni108/ms-config.git"
+          default-label: main
+          timeout: 5
+          clone-on-start: true # clone github repo in local
+          force-pull: true
